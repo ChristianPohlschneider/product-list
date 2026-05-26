@@ -7,13 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './product-list.scss',
 })
 export class ProductList {
-  list = [
+
+  list: Product[] = [
     {
       "name": "Gaming Maus",
       "description": "Eine ergonomische Gaming-Maus mit hoher Präzision und einstellbarer DPI.Ideal für FPS- und MOBA - Spiele, bietet sie eine langlebige Bauweise und komfortable Seitentasten für schnelles Reagieren.",
       "specs": "dpi: 6400, cable length: 1.8m, color: Schwarz",
       "stock": 120,
-      "price": 25.99
+      "price": 2599999
     },
     {
       "name": "USB-C Kabel",
@@ -34,7 +35,7 @@ export class ProductList {
       "description": "Ein zuverlässiges HDMI 2.1 Kabel, das gestochen scharfe Bilder in 4K und 8K Qualität liefert.Geeignet für Fernseher, Monitore, Konsolen und Projektoren. Unterstützt HDR und hohe Bildwiederholraten.",
       "specs": "length: 2m, version: 2.1, color: Schwarz",
       "stock": 250,
-      "price": 12.99
+      "price": 1299
     },
     {
       "name": "Externe SSD",
