@@ -8,7 +8,7 @@ export const routes: Routes = [
         component: ProductList
     },
     {
-        path: "detail",
+        path: "detail/:name",
         component: ProductDetail
     }
 ];

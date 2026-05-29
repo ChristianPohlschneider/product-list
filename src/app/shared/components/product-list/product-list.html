@@ -12,19 +12,19 @@
         <tbody>
             
             @for (item of list; track item.name; let index = $index) {
-            <tr [routerLink]="'detail'" role="link">
+            <tr [routerLink]="['detail', item.name]" role="link">
                 <td>{{item.name}}</td>
                 <td>{{item.specs}}</td>
                 <td><span class="badge ok">{{item.stock}}</span></td>
                 <td class="price">@switch (true) {
                 @case(item.price > 1000000){
-                    {{item.price/1000000}}mio
+                    {{item.price/1000000 | currency: '€'}}mio
                 }
                 @case(item.price > 1000){
-                    {{item.price/1000}}k
+                    {{item.price/1000 | currency: '€'}}k
                 }
                 @default {
-                    {{item.price}}
+                    {{item.price | currency: '€'}}
                 }     
                 }</td>
                 <td><a class="btn--view" aria-label="Details anzeigen"></a></td>

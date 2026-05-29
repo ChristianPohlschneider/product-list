@@ -4,4 +4,5 @@
   specs: string;
   stock: number;
   price: number;
+  date: Date;
 }
