@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {CurrencyPipe, DatePipe, TitleCasePipe} from '@angular/common';
 import { Products } from '../../services/products';
@@ -9,7 +9,7 @@ import { Products } from '../../services/products';
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss',
 })
-export class ProductList {
+export class ProductList implements OnInit{
   productService = inject(Products)
 
   // list: Product[] = [
@@ -62,6 +62,25 @@ export class ProductList {
   //     "date":  new Date('2026-04-25')
   //   }
   // ]
-    list = this.productService.productlist;
+    list = this.productService.productlist();
+
+ngOnInit() {
+  const tmpProduct = this.productService.productlist()
+    .find(product => product.name === "Gaming Maus");
+
+  if (!tmpProduct) return;
+
+  setTimeout(() => {
+    this.productService.productlist.update(list =>
+      list.map(p =>
+        p.name === tmpProduct.name
+          ? { ...p, name: "banana" }
+          : p
+      )
+    );
+
+    console.log(this.productService.productlist());
+  }, 2000);
+}
 
 }

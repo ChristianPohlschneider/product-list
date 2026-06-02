@@ -1,6 +1,6 @@
 <article class="product-detail">
     <header class="product-detail__header">
-        <h1>{{detail.name}}</h1>
+        <h1>{{detail().name}}</h1>
         <div>
             <a class="btn--edit" aria-label="Details editieren"></a>
             <button (click)="deleteDetail()" class="btn--delete" aria-label="Details löschen"></button>
@@ -10,29 +10,29 @@
         <h2 id="description">Beschreibung</h2>
         <ul>
             <p>
-                {{detail.description}}
+                {{detail().description}}
             </p>
         </ul>
     </section>
     <section aria-labelledby="specs">
         <h2 id="specs">Spezifikationen</h2>
         <p>
-            {{detail.specs}}
+            {{detail().specs}}
         </p>
     </section>
     <section>
         <dl>
             <dt>Lagerbestand:</dt>
             <dd>
-                <data value="104">{{detail.stock}} Stück</data>
+                <data value="104">{{detail().stock}} Stück</data>
             </dd>
             <dt>Preis pro Stück (€):</dt>
             <dd>
-                <data value="18.00">{{detail.price | currency: '€'}}</data>
+                <data value="18.00">{{detail().price | currency: '€'}}</data>
             </dd>
             <dt>Preisaktualität:</dt>
             <dd>
-                <data value="18.00">{{ detail.date | date:'dd.MM.yyyy' }}</data>
+                <data value="18.00">{{ detail().date | date:'dd.MM.yyyy' }}</data>
             </dd>
         </dl>
     </section>
