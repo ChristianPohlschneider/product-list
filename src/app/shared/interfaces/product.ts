@@ -6,3 +6,4 @@ export interface Product {
       price: number;
       date:  Date;
 }
+

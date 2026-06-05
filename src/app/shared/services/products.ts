@@ -16,19 +16,27 @@ export class Products {
     "date": new Date('1900-09-09')
   })
 
-
+  addProduct(product: Product) {
+    this.productlist.update(list => [...list, product])
+  }
 
   setProductDetailByName(name: string) {
     let tmpProduct = this.productlist().find(product => product.name == name)!
     if (tmpProduct) this.productdetail.set(tmpProduct)
 
-    setTimeout(() => {
-      this.productdetail.update(product => ({ ...product, description: "banana" }))
-    }, 2000
-    )
+    // setTimeout(() => {
+    //   this.productdetail.update(product => ({ ...product, description: "banana" }))
+    // }, 2000
+    // )
   }
 
-  
+  updateProduct(updated: Product) {
+  this.productlist.update(list =>
+    list.map(p =>
+      p.name === updated.name ? updated : p
+    )
+  );
+}
 
   constructor() {
     this.productlist.set([

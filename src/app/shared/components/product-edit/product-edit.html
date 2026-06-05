@@ -1,22 +1,22 @@
 <section class="product-form">
     <header class="product-form__header">
-        <h1>Produkt erstellen</h1>
+        <h1>Produkt editieren</h1>
         <a href="" class="btn--close"></a>
     </header>
 
-    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="productEdit" (ngSubmit)="onSubmit()">
         <fieldset class="product-form__fieldset--vert">
             <legend>Product Information</legend>
 
             <label for="product-name">Produkt Name:</label>
-            <input type="text" id="product-name" formControlName="name" />
-            @if (productForm.get("name")?.hasError("required")) {
+            <input type="text" id="product-name" formControlName="name"/>
+            @if (productEdit.get("name")?.hasError("required")) {
                 <p class="product-form__error">Fehler:</p>
                 <p class="product-form__error">
                     Bitte gib einen Namen ein.
                 </p>
             }
-            @if (productForm.get("name")?.hasError("minlength")) {
+            @if (productEdit.get("name")?.hasError("minlength")) {
                 <p class="product-form__error">Fehler:</p>
                 <p class="product-form__error">
                     Der Name muss min. 3 Zeichen lang sein.
@@ -31,13 +31,13 @@
 
             <label for="stock">Lagerbestand:</label>
             <input type="number" id="stock" name="stock" formControlName="stock" />
-            @if (productForm.get("stock")?.hasError("required")) {
+            @if (productEdit.get("stock")?.hasError("required")) {
                 <p class="product-form__error">Fehler:</p>
                 <p class="product-form__error">
                     Bitte gib einen Lagerbestand an.
                 </p>
             }
-            @if (productForm.get("stock")?.hasError("min")) {
+            @if (productEdit.get("stock")?.hasError("min")) {
                 <p class="product-form__error">Fehler:</p>
                 <p class="product-form__error">
                     Der Lagerbestand darf nicht negativ sein.
@@ -45,19 +45,19 @@
             }
             <label for="price">Preis pro Stück (€):</label>
             <input type="number" id="price" name="price" step="0.01" formControlName="price" />
-            @if (productForm.get("price")?.hasError("required")) {
+            @if (productEdit.get("price")?.hasError("required")) {
                 <p class="product-form__error">Fehler:</p>
                 <p class="product-form__error">
                     Bitte gib einen Preis an.
                 </p>
             }
-            @if (productForm.get("price")?.hasError("min")) {
+            @if (productEdit.get("price")?.hasError("min")) {
                 <p class="product-form__error">Fehler:</p>
                 <p class="product-form__error">
                     Der Preis darf nicht negativ sein.
                 </p>
             }
         </fieldset>
-        <button type="submit" class="btn btn--primary">Produkt hinzufügen</button>
+        <button type="submit" class="btn btn--primary">Produkt aktualisieren</button>
     </form>
 </section>
