@@ -70,17 +70,17 @@ ngOnInit() {
 
   if (!tmpProduct) return;
 
-  setTimeout(() => {
-    this.productService.productlist.update(list =>
-      list.map(p =>
-        p.name === tmpProduct.name
-          ? { ...p, name: "banana" }
-          : p
-      )
-    );
+  // setTimeout(() => {
+  //   this.productService.productlist.update(list =>
+  //     list.map(p =>
+  //       p.name === tmpProduct.name
+  //         ? { ...p, name: "banana" }
+  //         : p
+  //     )
+  //   );
 
-    console.log(this.productService.productlist());
-  }, 2000);
+    // console.log(this.productService.productlist());
+  // }, 2000);
 }
 
 }
