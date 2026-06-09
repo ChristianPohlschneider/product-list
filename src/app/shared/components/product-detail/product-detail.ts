@@ -18,9 +18,9 @@ export class ProductDetail {
   detail = this.productService.productdetail
 
   ngOnInit() {
-    let currentName = this.route.snapshot.paramMap.get('name');
-    if (currentName) {
-      this.productService.setProductDetailByName(currentName);
+    let currentid = Number(this.route.snapshot.paramMap.get('id'));
+    if (currentid) {
+      this.productService.setProductDetailById(currentid);
     }
   }
 

@@ -26,14 +26,20 @@ export class Products {
     this.productlist.update(list => [...list, product])
   }
 
-  setProductDetailByName(name: string) {
-    let tmpProduct = this.productlist().find(product => product.name == name)!
+  // setProductDetailByName(name: string) {
+  //   let tmpProduct = this.productlist().find(product => product.name == name)!
+  //   if (tmpProduct) this.productdetail.set(tmpProduct)
+
+  //   setTimeout(() => {
+  //     this.productdetail.update(product => ({ ...product, description: "banana" }))
+  //   }, 2000
+  //   )
+  // }
+
+    setProductDetailById(id: number) {
+    let tmpProduct = this.productlist().find(product => product.id == id)!
     if (tmpProduct) this.productdetail.set(tmpProduct)
 
-    // setTimeout(() => {
-    //   this.productdetail.update(product => ({ ...product, description: "banana" }))
-    // }, 2000
-    // )
   }
 
   updateProduct(updated: Product) {

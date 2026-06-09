@@ -15,6 +15,7 @@ export class ProductForm {
   productService = inject(Products)
 
   productForm = new FormGroup({
+    id: new FormControl(0, {nonNullable:true}),
     name: new FormControl('n/a', {nonNullable:true, validators: [Validators.required, Validators.minLength(3)] }),
     description: new FormControl('n/a', {nonNullable:true}),
     specs: new FormControl('n/a', {nonNullable:true}),

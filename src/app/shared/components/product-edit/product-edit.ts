@@ -19,10 +19,10 @@ export class ProductEdit {
   productlist = signal<Product[]>([]);
 
   ngOnInit() {
-    const currentName = this.route.snapshot.paramMap.get('name');
+    const currentid = Number(this.route.snapshot.paramMap.get('id'));
 
-    if (currentName) {
-      this.productService.setProductDetailByName(currentName);
+    if (currentid) {
+      this.productService.setProductDetailById(currentid);
     }
 
     this.productEdit.patchValue({
@@ -51,7 +51,8 @@ export class ProductEdit {
         specs: "n/a",
         stock: Number(this.productEdit.value.stock ?? 0),
         price: Number(this.productEdit.value.price ?? 0),
-        date: new Date('1900-09-09')
+        date: new Date('1900-09-09'),
+        id: 0
       };
 
       this.productService.updateProduct(product);
