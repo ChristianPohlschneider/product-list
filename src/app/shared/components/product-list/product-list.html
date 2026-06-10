@@ -14,7 +14,7 @@
             @for (item of productService.productlist(); track item.id; let index = $index) {
             <tr [routerLink]="['detail', item.id]" role="link">
                 <td>{{item.name}}</td>
-                <td>{{item.specs}}</td>
+                <td>{{item.description}}</td>
                 <td><span class="badge ok">{{item.stock}}</span></td>
                 <td class="price">@switch (true) {
                 @case(item.price > 1000000){

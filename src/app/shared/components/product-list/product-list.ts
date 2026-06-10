@@ -65,10 +65,10 @@ export class ProductList implements OnInit{
     list = this.productService.productlist();
 
 ngOnInit() {
-  const tmpProduct = this.productService.productlist()
-    .find(product => product.name === "Gaming Maus");
+  // const tmpProduct = this.productService.productlist()
+  //   .find(product => product.name === "Gaming Maus");
 
-  if (!tmpProduct) return;
+  // if (!tmpProduct) return;
 
   // setTimeout(() => {
   //   this.productService.productlist.update(list =>

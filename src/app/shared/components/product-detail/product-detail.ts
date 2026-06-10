@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
-import {CurrencyPipe, DatePipe, TitleCasePipe} from '@angular/common';
+import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
 import { Products } from '../../services/products';
 
 @Component({
@@ -13,6 +13,7 @@ import { Products } from '../../services/products';
 export class ProductDetail {
 
   private route = inject(ActivatedRoute)
+  router = inject(Router)
   productService = inject(Products)
 
   detail = this.productService.productdetail
@@ -26,7 +27,10 @@ export class ProductDetail {
 
 
 
-  deleteDetail() {
-    // this.detail.name = "";
+  async deleteDetail() {
+    this.productService.deleteProduct(this.detail().id)
+
+
+    this.router.navigate([""])
   }
 }

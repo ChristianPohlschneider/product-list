@@ -18,4 +18,15 @@ export class Productmodels implements Product {
     this.price = data.price ?? 0;
     this.date = data.date ?? new Date('1999-09-19');
   }
+
+  getCleanAddJson() {
+    return {
+      name: this.name,
+      description: this.description,
+      specs: this.specs,
+      stock: this.stock,
+      price: this.price,
+      date: this.date
+    }
+  }
 }
